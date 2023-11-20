@@ -132,4 +132,4 @@ I would like to express my heartfelt gratitude to [Microverse](https://github.co
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📜 License <a name="license"></a>
-This project is [MIT](https://github.com/sergio-usma/recipes_app/dev/LICENSE) licensed.
+This project is [MIT](./LICENSE) licensed.
