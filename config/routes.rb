@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
-  devise_for :users
-  root to: "foods#index"
+  root 'users#index'
 
-  get 'foods/index'
-  get 'foods/show'
+  devise_for :users, controllers: { registrations: 'users/registrations' }
 
+  resources :foods
+  resources :recipe_foods
+  resources :recipes
 end
