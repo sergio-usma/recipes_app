@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;600;700;900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Monserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Monserrat', sans-serif;
 }
 
 .logo {
-    font-family: 'Anton', sans-serif;
+  font-family: 'Anton', sans-serif;
 }
 
 .navbar-nav .nav-link.active {
-    color: #1875cc !important;
+  color: #1875cc !important;
 }
