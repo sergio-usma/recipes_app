@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
+# Add CanCanCan gem
+gem 'cancancan', '~> 1.10'
+
 # Add Rubocop from Microverse's linters
 gem 'rubocop', '>= 1.0', '< 2.0'
 

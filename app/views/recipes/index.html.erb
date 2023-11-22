@@ -1,2 +1,4 @@
-<h1>Foods#show</h1>
-<p>Find me in app/views/foods/show.html.erb</p>
+<section class="p-3 text-center d-flex flex-column row-gap-3">
+  <h1><%= @user.name %>'s Recipes</h1>
+  <%= render partial: 'recipe_card', collection: @recipes, as: :recipe %>
+</section>
