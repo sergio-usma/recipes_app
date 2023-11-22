@@ -1,4 +1,5 @@
 require "active_support/core_ext/integer/time"
+require 'bullet'
 
 # The test environment is used exclusively to run your application's
 # test suite. You never need to work with it otherwise. Remember that
@@ -15,6 +16,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # While tests run files are not watched, reloading is not necessary.
+  config.cache_classes = true
   config.enable_reloading = false
 
   # Eager loading loads your entire application. When running a single test locally,
