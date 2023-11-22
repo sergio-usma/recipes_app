@@ -7,7 +7,7 @@ module RecipesHelper
     content = ''
     if can?(:destroy, recipe)
       content << button_to('Remove', recipe_path(recipe), method: :delete,
-                           class: 'fs-5 border border-0 bg-transparent
+                                                          class: 'fs-5 border border-0 bg-transparent
                                                                   text-decoration-underline text-primary').to_s
     end
     content.html_safe
@@ -18,10 +18,10 @@ module RecipesHelper
     if can?(:update, recipe)
       content = if recipe.public
                   (button_to '', recipe_path(recipe), method: :patch, params: { recipe: { public: false } },
-                             remote: true, class: 'public-btn').to_s
+                                                      remote: true, class: 'public-btn').to_s
                 else
                   (button_to '', recipe_path(recipe), method: :patch, params: { recipe: { public: true } },
-                             remote: true, class: 'public-btn-false').to_s
+                                                      remote: true, class: 'public-btn-false').to_s
                 end
     end
     content.html_safe
