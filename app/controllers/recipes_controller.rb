@@ -8,9 +8,6 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @recipe_foods = @recipe.recipe_foods
-    @foods = []
-    @recipe_foods.each { |recipe_food| @foods << Food.where(id: recipe_food.food_id) }
   end
 
   def update
@@ -32,14 +29,13 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @user = current_user
-    @new_recipe = @user.recipes.new
+    @recipe = Recipe.new
   end
 
   def create
-    recipe = current_user.recipes.new(recipes_params)
-    if recipe.save
-      redirect_to recipe_path(recipe.id)
+    @recipe = current_user.recipes.new(recipes_params)
+    if @recipe.save
+      redirect_to recipe_path(@recipe.id)
     else
       render :new
     end
@@ -48,7 +44,7 @@ class RecipesController < ApplicationController
   private
 
   def recipes_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 
   def update_params
