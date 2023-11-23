@@ -1,14 +1,11 @@
 <section class="text-center p-3">
-  <h3 class="p-3"><%= @recipe.name %></h3>
+  <h2 class="p-3 fw-bold"><%= @recipe.name %></h2>
   <div class="container text-start ps-4">
     <div class="row ps-4">
       <div class="col d-flex flex-column row-gap-3">
         <span>Preparation time: <%= @recipe.preparation_time %> hours</span>
         <span>Cooking time: <%= @recipe.cooking_time %></span>
       </div>
-<!--      <div class="col d-flex justify-content-end pe-5">
-        <span class="d-flex column-gap-2">Public <%#= public?(@recipe) %></span>
-      </div>-->
     </div>
     <div class="row p-4">
       <div class="col">
