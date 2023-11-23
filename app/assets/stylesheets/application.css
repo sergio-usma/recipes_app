@@ -14,3 +14,11 @@
 .navbar-nav .nav-link.active {
   color: #1875cc !important;
 }
+
+a {
+  text-decoration: none !important;
+}
+
+tr, td {
+  text-align: center;
+}
