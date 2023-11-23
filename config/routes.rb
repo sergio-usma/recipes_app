@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'users#index'
+  root 'public_recipes#index'
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
@@ -7,6 +7,5 @@ Rails.application.routes.draw do
   get 'recipe_foods/new/:id', to: 'recipe_foods#new', as: 'new_recipe_food'
   resources :recipe_foods
   resources :recipes
-  resources :general_shopping_lists, only: [:index]
-
+  resources :public_recipes, only: [:index]
 end
