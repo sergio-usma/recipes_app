@@ -8,10 +8,11 @@
       </div>
 
       <div class="col d-flex justify-content-end pe-5">
-        <div class="custom-control custom-switch">
+        <p class="mb-0 mt-1 mx-2">Public</p>
+        <label class="switch">
           <input type="checkbox" class="custom-control-input" id="recipe_publicity" data-recipe-id="<%= @recipe.id %>" <%= @recipe.public? ? "checked" : "" %> />
-          <label class="custom-control-label" for="recipe_publicity">Public</label>
-        </div>
+          <span class="slider round" for="recipe_publicity"></span>
+        </label>
       </div>
 
     </div>
