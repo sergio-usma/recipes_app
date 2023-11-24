@@ -30,6 +30,10 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  # Configure Devise testing
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :request
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{Rails.root}/spec/fixtures"
 
@@ -60,6 +64,15 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.include FactoryBot::Syntax::Methods
+
+  # Include shoulda-matchers configuration
+  Shoulda::Matchers.configure do |config| # rubocop:disable Lint/ShadowingOuterLocalVariable
+    config.integrate do |with|
+      with.test_framework :rspec
+      with.library :rails
+    end
+  end
 end
 
 class TestModelCreator
@@ -69,6 +82,37 @@ class TestModelCreator
       email: 'example@example.com',
       password: 'password123',
       confirmed_at: Time.now
+    )
+  end
+end
+
+class TestConfiguration
+  @example_user = nil
+
+  def self.example_user
+    @example_user ||= create_example_user
+  end
+
+  def self.create_example_user
+    user = User.create!(
+      name: 'Albert Einstein',
+      email: 'albert@physics.com',
+      password: 'password',
+      confirmed_at: Time.now
+    )
+
+    create_food(user, 'Passion fruit')
+    create_food(user, 'Pineapple')
+    user
+  end
+
+  def self.create_food(user, name)
+    Food.create!(
+      name:,
+      measurement_unit: 'unit',
+      price: 1,
+      quantity: 1,
+      user:
     )
   end
 end
