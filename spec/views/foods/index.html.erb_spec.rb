@@ -9,7 +9,7 @@ RSpec.describe 'foods/index', type: :view do
     render
   end
 
-  it "renders food list table title" do
+  it 'renders food list table title' do
     expect(rendered).to match(/Food List/)
   end
 

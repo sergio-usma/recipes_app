@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   let(:user) { User.new(name: 'Timmy') }
-  let(:recipe) { Recipe.new(name: 'Recipe', description: 'Recipe Description', user: user) }
+  let(:recipe) { Recipe.new(name: 'Recipe', description: 'Recipe Description', user:) }
 
   before :each do
     user.save

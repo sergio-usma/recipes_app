@@ -3,9 +3,11 @@ require 'rails_helper'
 RSpec.describe 'general_shopping_lists/index', type: :view do
   include Devise::Test::ControllerHelpers
   let(:user) { TestModelCreator.user }
-  let(:food) { Food.create(user: user, name: 'Onion', measurement_unit: 'gr', price: '1', quantity: 30) }
-  let(:recipe) { Recipe.create(user: user, preparation_time: 1, cooking_time: 1, name: 'Recipe name', description: 'Recipe description') }
-  let(:recipe_food) { RecipeFood.create(quantity: 100, recipe: recipe, food: food) }
+  let(:food) { Food.create(user:, name: 'Onion', measurement_unit: 'gr', price: '1', quantity: 30) }
+  let(:recipe) do
+    Recipe.create(user:, preparation_time: 1, cooking_time: 1, name: 'Recipe name', description: 'Recipe description')
+  end
+  let(:recipe_food) { RecipeFood.create(quantity: 100, recipe:, food:) }
   let(:shopping) { { food.id => { name: food.name, quantity: 70, total_price: 70 } } }
 
   before do

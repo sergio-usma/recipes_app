@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe 'recipes/show', type: :view do
   include Devise::Test::ControllerHelpers
   let(:user) { TestModelCreator.user }
-  let(:recipe) { Recipe.create(user: user, preparation_time: 1, cooking_time: 1, name: 'Recipe name', description: 'Recipe description') }
+  let(:recipe) do
+    Recipe.create(user:, preparation_time: 1, cooking_time: 1, name: 'Recipe name', description: 'Recipe description')
+  end
 
   before do
     sign_in user

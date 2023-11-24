@@ -17,7 +17,8 @@ RSpec.describe 'public_recipes/index', type: :view do
   end
 
   it 'renders public recipes if they are public' do
-    recipe = Recipe.create(public: true, preparation_time: 1, cooking_time: 1, name: 'Recipe name', description: 'Test', user: user)
+    recipe = Recipe.create(public: true, preparation_time: 1, cooking_time: 1, name: 'Recipe name',
+                           description: 'Test', user:)
     assign(:recipes, [recipe])
     render
 
