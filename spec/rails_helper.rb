@@ -61,3 +61,14 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+class TestModelCreator
+  def self.user
+    User.create(
+      name: 'Timmy',
+      email: 'example@example.com',
+      password: 'password123',
+      confirmed_at: Time.now
+    )
+  end
+end
