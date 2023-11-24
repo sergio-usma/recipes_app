@@ -3,7 +3,7 @@
     <h2 class="my-0">
       <%= link_to recipe.name, recipe_path(recipe.id), class: "card-title fw-bold fs-5" %>
     </h2>
-    <p class="my-0"><%= link_to delete_button(recipe), class: "card-title" %></p>
+    <%= delete_button(recipe) %>
   </div>
   <div class="w-50"><%= trim_text(recipe.description) %></div>
 </div>
