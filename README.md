@@ -103,7 +103,13 @@ Copy code
 ```bash
 rails server
 ```
-Open your web browser and go to http://localhost:3000 to access the Blog App.
+Open your web browser and go to http://localhost:3000 to access the Blog App..
+
+Run tests in Rspec:
+
+```bash
+rspec
+```
 
 ## 👥 Authors <a name="authors"></a>
 
