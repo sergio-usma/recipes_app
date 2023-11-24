@@ -6,12 +6,11 @@
     <ul>
       <% total_price = 0 %>
       <% food_count = recipe.foods.count %>
-      <% recipe.foods.each do |food| %>
-        <p><% food.price %></p>
-        <% total_price += food.price %>
+      <% recipe.recipe_foods.each do |recipe_food| %>
+      <% total_price += recipe_food.quantity * recipe_food.food.price %>
       <% end %>
     </ul>
-    <span>Total Food Items: <%= food_count %></span> <br>
-    <span>Total Price: <%= total_price %></span>
+    <p><span class="fw-bold">Total Food Items: </span><%= food_count %></p>
+    <p><span class="fw-bold">Total Food Price: </span>$<%= total_price %></p>
   </div>
 </div>
