@@ -6,7 +6,7 @@
     <ul>
       <% total_price = 0 %>
       <% food_count = recipe.foods.count %>
-      <% recipe.recipe_foods.each do |recipe_food| %>
+      <% RecipeFood.includes(:food).where(recipe: recipe).references(:food).each do |recipe_food| %>
       <% total_price += recipe_food.quantity * recipe_food.food.price %>
       <% end %>
     </ul>

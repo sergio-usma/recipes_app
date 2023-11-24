@@ -1,12 +1,12 @@
 class GeneralShoppingListsController < ApplicationController
   def index
-    @recipes = current_user.recipes.includes(:foods, :recipe_foods).all
+    @recipes = Recipe.includes(:user).where(user: current_user).references(:user)
     required_foods = calculate_required_foods
 
     @total_price = 0
     @shopping_list = {}
     required_foods.each do |food_id, quantity|
-      food = Food.find_by(id: food_id)
+      food = Food.find(food_id)
       next unless food.quantity < quantity
 
       final_quantity = quantity - food.quantity
@@ -26,7 +26,7 @@ class GeneralShoppingListsController < ApplicationController
   def calculate_required_foods
     required_foods = {}
     @recipes.each do |recipe|
-      recipe.recipe_foods.each do |recipe_food|
+      RecipeFood.includes(:recipe).where(recipe:).references(:recipe).each do |recipe_food|
         if required_foods[recipe_food.food_id].nil?
           required_foods[recipe_food.food_id] = recipe_food.quantity
         else

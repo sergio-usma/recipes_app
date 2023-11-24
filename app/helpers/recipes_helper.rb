@@ -41,7 +41,7 @@ module RecipesHelper
   def recipe_actions(food, recipe_food)
     content = ''
     unless can?(:update, food) && can?(:destroy, food)
-      content << '<span>No actions permited</span>'
+      content << '<span>No actions permitted</span>'
       return content.html_safe
     end
     content << (link_to 'Modify', edit_recipe_food_path(recipe_food), class: 'link-info p-2').to_s
