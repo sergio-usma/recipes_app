@@ -34,8 +34,8 @@ RSpec.describe RecipesHelper, type: :helper do
 
   describe '#recipe_actions' do
     it 'returns modify and remove links if the user can update and destroy the food' do
-      food = FactoryBot.create(:food, user: user)
-      recipe_food = FactoryBot.create(:recipe_food, recipe: recipe, food: food)
+      food = FactoryBot.create(:food, user:)
+      recipe_food = FactoryBot.create(:recipe_food, recipe:, food:)
       allow(helper).to receive(:can?).with(:update, food).and_return(true)
       allow(helper).to receive(:can?).with(:destroy, food).and_return(true)
 
@@ -45,8 +45,8 @@ RSpec.describe RecipesHelper, type: :helper do
     end
 
     it 'returns a message if the user cannot update and destroy the food' do
-      food = FactoryBot.create(:food, user: user)
-      recipe_food = FactoryBot.create(:recipe_food, recipe: recipe, food: food)
+      food = FactoryBot.create(:food, user:)
+      recipe_food = FactoryBot.create(:recipe_food, recipe:, food:)
       allow(helper).to receive(:can?).with(:update, food).and_return(false)
       allow(helper).to receive(:can?).with(:destroy, food).and_return(false)
 

@@ -26,7 +26,7 @@ class GeneralShoppingListsController < ApplicationController
   def calculate_required_foods
     required_foods = {}
     @recipes.each do |recipe|
-      RecipeFood.includes(:recipe).where(recipe: recipe).references(:recipe).each do |recipe_food|
+      RecipeFood.includes(:recipe).where(recipe:).references(:recipe).each do |recipe_food|
         if required_foods[recipe_food.food_id].nil?
           required_foods[recipe_food.food_id] = recipe_food.quantity
         else

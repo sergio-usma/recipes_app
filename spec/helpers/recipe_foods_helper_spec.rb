@@ -32,7 +32,8 @@ RSpec.describe RecipeFoodsHelper, type: :helper do
                     No foods to add
                     Return Link
                   </div>")
-        expect(helper).to have_received(:link_to).with('Return', recipe_path(recipe_info.id), class: 'btn btn-danger btn-lg')
+        expect(helper).to have_received(:link_to).with('Return', recipe_path(recipe_info.id),
+                                                       class: 'btn btn-danger btn-lg')
       end
     end
   end
