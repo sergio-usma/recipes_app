@@ -2,12 +2,7 @@
  <div class="justify-content-center row text-center">
   <div class="col-6">
   <h2>Log In</h2>
-  <% if notice %>
-    <p class="notice"><%= notice%></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert"><%= alert%></p>
-  <% end %>
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "needs-validation" }, autocomplete: "off" ) do |f| %>
     <div class="mb-3">
       <%= f.email_field :email, placeholder: "Email address" , class: "form-control" , autofocus: true, required: true %>
