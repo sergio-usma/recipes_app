@@ -1,6 +1,6 @@
 class GeneralShoppingListsController < ApplicationController
   def index
-    @recipes = current_user.recipes
+    @recipes = Recipe.includes(:user).where(user: current_user).references(:user)
     required_foods = calculate_required_foods
 
     @total_price = 0
@@ -25,8 +25,8 @@ class GeneralShoppingListsController < ApplicationController
 
   def calculate_required_foods
     required_foods = {}
-    @recipes.each do |recipe| 
-      recipe.recipe_foods.each do |recipe_food|
+    @recipes.each do |recipe|
+      RecipeFood.includes(:recipe).where(recipe: recipe).references(:recipe).each do |recipe_food|
         if required_foods[recipe_food.food_id].nil?
           required_foods[recipe_food.food_id] = recipe_food.quantity
         else
