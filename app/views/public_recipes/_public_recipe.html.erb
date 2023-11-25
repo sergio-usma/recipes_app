@@ -1,0 +1,16 @@
+<div class=" d-flex justify-content-evenly column-gap-3 my-3 p-3 border rounded-3 ">
+  <div class="d-flex flex-column justify-content-center w-50">
+    <%= link_to recipe.name, recipe_path(recipe.id), class: "card-title fw-bold fs-5" %>By: <%= recipe.user.name %>
+  </div>
+  <div class="w-50">
+    <ul>
+      <% total_price = 0 %>
+      <% food_count = recipe.foods.count %>
+      <% RecipeFood.includes(:food).where(recipe: recipe).references(:food).each do |recipe_food| %>
+      <% total_price += recipe_food.quantity * recipe_food.food.price %>
+      <% end %>
+    </ul>
+    <p><span class="fw-bold">Total Food Items: </span><%= food_count %></p>
+    <p><span class="fw-bold">Total Food Price: </span>$<%= total_price %></p>
+  </div>
+</div>

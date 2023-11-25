@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-evenly align-items-center column-gap-3 my-3 p-3 border rounded-3 ">
+  <div class="d-flex flex-column justify-content-center w-50 mx-2">
+    <h2 class="my-0">
+      <%= link_to recipe.name, recipe_path(recipe.id), class: "card-title fw-bold fs-5" %>
+    </h2>
+    <%= delete_button(recipe) %>
+  </div>
+  <div class="w-50"><%= trim_text(recipe.description) %></div>
+</div>
